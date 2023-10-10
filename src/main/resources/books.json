@@ -1,40 +1,21 @@
-[{
-  "id": "1",
-  "title": "Harry Potter",
-  "author": "mm",
-  "genre": "Fantasy"
-},
-{
-"id": "2",
-"title": "Harry",
-"author": "nn",
-"genre": "Drama"
-},
-{
-"id": "3",
-"title": "Potter",
-"author": "oo",
-"genre": "Crime"
-}]
-
-//{"books":[
-//  {
-//    "id": "1",
-//    "title": "Harry Potter",
-//    "author": "mm",
-//    "genre": "Fantasy"
-//  },
-//  {
-//    "id": "2",
-//    "title": "Harry",
-//    "author": "nn",
-//    "genre": "Drama"
-//  },
-//  {
-//    "id": "3",
-//    "title": "Potter",
-//    "author": "oo",
-//    "genre": "Crime"
-//  }
-//]
-//}
+{"books":[
+    {
+      "id": "1",
+      "title": "Harry Potter",
+      "author": "mm",
+      "genre": "Fantasy"
+    },
+    {
+      "id": "2",
+      "title": "Harry",
+      "author": "nn",
+      "genre": "Drama"
+    },
+    {
+      "id": "3",
+      "title": "Potter",
+      "author": "oo",
+      "genre": "Crime"
+    }
+  ]
+}
