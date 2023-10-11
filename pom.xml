@@ -17,6 +17,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -27,6 +28,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
@@ -50,11 +52,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -75,12 +72,26 @@
 			</exclusions>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jackson-starter -->
 		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20230618</version>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson-starter</artifactId>
+			<version>2.25.4</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jackson-core</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+			<version>2.7.16</version>
+		</dependency>
+
 
 
 	</dependencies>
@@ -111,6 +122,12 @@
 						<groupId>com.fasterxml.jackson.dataformat</groupId>
 						<artifactId>jackson-dataformat-xml</artifactId>
 						<version>2.15.2</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jackson-starter -->
+					<dependency>
+						<groupId>org.apache.camel</groupId>
+						<artifactId>camel-jackson-starter</artifactId>
+						<version>2.25.4</version>
 					</dependency>
 				</dependencies>
 			</plugin>
