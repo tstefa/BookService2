@@ -18,22 +18,13 @@ public class BookRoute extends RouteBuilder {
                 .process(new BookAddition());
 
         from("direct:loanBook")
+                .setProperty("id",simple("${body.get(customerId)}"))
+                .log("CustomerId has been set!")
                 .bean(BookProcessor.class, "getBook")
                 .log("${body}")
-                .setProperty("id",simple("${body.id}"))
                 .marshal(bookDataFormat)
                 .log("${body}")
-                .to("http://localhost:8083/bookStore/loanBook/${exchangeProperty.id}");
+                .toD("http://localhost:8083/bookStore/loanBook/${exchangeProperty.id}");
 
-//        EXPERIMENTAL
-//        from("timer: first-timer")
-//                .transform().constant("Constant")
-//                .to("log:first-timer");
-//    }
-
-//    If I want an operation that does not make a change on the body you use processing
-//    If you want to have an operation that makes changes to the body of the message
-
-//    Working with ActiveMQ - What is it - are we using it as well
     }
 }
