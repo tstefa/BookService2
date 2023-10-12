@@ -20,9 +20,10 @@ public class BookRoute extends RouteBuilder {
         from("direct:loanBook")
                 .bean(BookProcessor.class, "getBook")
                 .log("${body}")
+                .setProperty("id",simple("${body.id}"))
                 .marshal(bookDataFormat)
                 .log("${body}")
-                .to("http://localhost:8083/bookStore/loanBook");
+                .to("http://localhost:8083/bookStore/loanBook/${exchangeProperty.id}");
 
 //        EXPERIMENTAL
 //        from("timer: first-timer")
