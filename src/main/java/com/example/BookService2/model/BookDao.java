@@ -24,7 +24,7 @@ public class BookDao implements Serializable {
 
     @Override
     public String toString() {
-        return "BookDao{" +
+        return "{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +

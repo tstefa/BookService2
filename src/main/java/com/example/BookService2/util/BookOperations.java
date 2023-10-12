@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /*Ask why you can't use @Autowired in this case and why is it returning nullPointerException*/
@@ -33,5 +34,13 @@ public class BookOperations{
     }
 
 
+    public BookDao getBook(Map<String,String> id) throws IOException {
+        List<BookDao> bookDaos = this.jsonToBookDao();
 
+        return bookDaos
+                .stream()
+                .filter(i -> i.getId().equals(id.get(Constants.BOOK_ID)))
+                .findFirst()
+                .get();
+    }
 }
