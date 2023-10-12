@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("books")
 public class BookController {
@@ -33,5 +36,20 @@ public class BookController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.OK).body(null);
         }
+    }
+
+    @GetMapping("/loan-book/{bookId}/to/{customerId}")
+    public String loanBook(@PathVariable("bookId") String bookId,@PathVariable("customerId") String customerId) {
+
+        Map<String,String> idList = new HashMap<>();
+        idList.put("bookId",bookId);
+        idList.put("customerId",customerId);
+        try {
+            producerTemplate.sendBody("direct:loanBook",idList);
+        } catch (Exception e){
+            e.printStackTrace();
+            return HttpStatus.BAD_REQUEST.toString();
+        }
+        return HttpStatus.OK.toString();
     }
 }
